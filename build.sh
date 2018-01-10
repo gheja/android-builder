@@ -22,7 +22,7 @@ section_start()
 		echo -en "travis_fold:start:${section}\\r"
 	fi
 	
-	echo -e "\\e[33m${message}\\e[39m"
+	echo -e "\\e[1;93m${message}\\e[0;39m"
 }
 
 section_end()
