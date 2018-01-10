@@ -109,7 +109,7 @@ if [ ! -e "licenses/android-sdk-preview-license" ]; then
 fi
 
 ./tools/bin/sdkmanager --update
-./tools/bin/sdkmanager "platforms;android-26" "build-tools;26.0.2"
+./tools/bin/sdkmanager "platforms;android-26" "build-tools;26.0.2" 2>&1 | grep -vE '^\[[ =]+\] '
 
 cd ..
 
