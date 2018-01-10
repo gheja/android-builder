@@ -13,6 +13,27 @@ _usage_and_exit()
 	exit 1
 }
 
+section_start()
+{
+	local section="$1"
+	local message="$2"
+	
+	if [ "$TRAVIS" == "true" ]; then
+		echo -en "travis_fold:start:${section}\\r"
+	fi
+	
+	echo -e "\\e[33m${message}\\e[39m"
+}
+
+section_end()
+{
+	local section="$1"
+	
+	if [ "$TRAVIS" == "true" ]; then
+		echo -en "travis_fold:end:${section}\\r"
+	fi
+}
+
 if [ $# -lt 2 ] || [ $# -gt 4 ]; then
 	_usage_and_exit
 fi
@@ -57,6 +78,7 @@ fi
 
 
 ### preparing
+section_start "android_prepare" "Preparing..."
 
 cd "$ROOT_DIR"
 
@@ -113,6 +135,11 @@ fi
 
 cd ..
 
+section_end "android_prepare"
+
+### building
+section_start "android_build" "Building..."
+
 cd src
 
 # copy files
@@ -135,6 +162,8 @@ fi
 cp src/app/build/outputs/apk/debug/*.apk ./
 
 cp *.apk "$TARGET_DIR/"
+
+section_end "android_build"
 
 cd "$TARGET_DIR"
 
