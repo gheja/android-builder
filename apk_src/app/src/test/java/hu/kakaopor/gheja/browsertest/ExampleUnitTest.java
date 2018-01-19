@@ -1,4 +1,4 @@
-package hu.kakaopor.gheja.test02;
+package com.example.asd;
 
 import org.junit.Test;
 

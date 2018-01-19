@@ -1,4 +1,4 @@
-package hu.kakaopor.gheja.test02;
+package com.example.asd;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("hu.kakaopor.gheja.test02", appContext.getPackageName());
+        assertEquals("com.example.asd", appContext.getPackageName());
     }
 }
