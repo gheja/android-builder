@@ -1,4 +1,4 @@
-package com.example.asd;
+package hu.kakaopor.gheja.browsertest;
 
 import org.junit.Test;
 
