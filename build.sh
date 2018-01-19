@@ -149,6 +149,9 @@ cp -r "$SOURCE_DIR/"* ./app/src/main/assets/www/
 # set up sdk path
 echo "sdk.dir=$ANDROID_SDK" > ./local.properties
 
+# set final class name and title - should come from config
+./rename.sh hu.kakaopor.gheja.sitametgame "Sit Amet Game"
+
 ./gradlew --no-daemon --stacktrace --console plain build
 result=$?
 
